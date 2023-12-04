@@ -129,13 +129,13 @@ public class JSONUnmarshallerImpl extends BaseJSONUnmarshaller implements Unmars
         return this.jaxbUnmarshaller.getUnmarshallerHandler();
     }
 
-    public void setValidating(boolean validating) throws JAXBException {
-        this.jaxbUnmarshaller.setValidating(validating);
-    }
-
-    public boolean isValidating() throws JAXBException {
-        return this.jaxbUnmarshaller.isValidating();
-    }
+//    public void setValidating(boolean validating) throws JAXBException {
+//        this.jaxbUnmarshaller.setValidating(validating);
+//    }
+//
+//    public boolean isValidating() throws JAXBException {
+//        return this.jaxbUnmarshaller.isValidating();
+//    }
 
     public void setEventHandler(ValidationEventHandler validationEventHandler) throws JAXBException {
         this.jaxbUnmarshaller.setEventHandler(validationEventHandler);
@@ -161,23 +161,23 @@ public class JSONUnmarshallerImpl extends BaseJSONUnmarshaller implements Unmars
         return this.jaxbUnmarshaller.getSchema();
     }
 
-    public <A extends XmlAdapter> void setAdapter(Class<A> type, A adapter) {
-        this.jaxbUnmarshaller.setAdapter(type, adapter);
-    }
-
-    public <A extends XmlAdapter> A getAdapter(Class<A> type) {
-        return this.jaxbUnmarshaller.getAdapter(type);
-    }
-
-//    @Override
-//    public <A extends XmlAdapter<?, ?>> void setAdapter(Class<A> type, A adapter) {
+//    public <A extends XmlAdapter> void setAdapter(Class<A> type, A adapter) {
 //        this.jaxbUnmarshaller.setAdapter(type, adapter);
 //    }
 //
-//    @Override
-//    public <A extends XmlAdapter<?, ?>> A getAdapter(Class<A> type) {
+//    public <A extends XmlAdapter> A getAdapter(Class<A> type) {
 //        return this.jaxbUnmarshaller.getAdapter(type);
 //    }
+
+    @Override
+    public <A extends XmlAdapter<?, ?>> void setAdapter(Class<A> type, A adapter) {
+        this.jaxbUnmarshaller.setAdapter(type, adapter);
+    }
+
+    @Override
+    public <A extends XmlAdapter<?, ?>> A getAdapter(Class<A> type) {
+        return this.jaxbUnmarshaller.getAdapter(type);
+    }
 
     public void setAdapter(XmlAdapter xmlAdapter) {
         this.jaxbUnmarshaller.setAdapter(xmlAdapter);

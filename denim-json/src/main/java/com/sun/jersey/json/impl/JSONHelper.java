@@ -100,7 +100,7 @@ public final class JSONHelper {
                     return jaxbProvider = provider;
                 }
             } catch (ClassNotFoundException e) {
-                // Do nothing, try the next provider.
+                boolean pause = true;// Do nothing, try the next provider.
             }
         }
         throw new IllegalStateException("No JAXB provider found for the following JAXB context: "

@@ -45,10 +45,10 @@ package com.sun.jersey.json.impl;
 */
 public enum SupportedJaxbProvider implements JaxbProvider {
 
+    GLFS("org.glassfish.jaxb.runtime.v2.runtime.JAXBContextImpl", JaxbRiXmlStructure.class),
     JAXB_RI("com.sun.xml.bind.v2.runtime.JAXBContextImpl", JaxbRiXmlStructure.class),
     MOXY("org.eclipse.persistence.jaxb.JAXBContext", MoxyXmlStructure.class),
-    JAXB_JDK("com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl", JaxbJdkXmlStructure.class),
-    GLFS("org.glassfish.jaxb.runtime.v2.runtime.JAXBContextImpl", JaxbRiXmlStructure.class);
+    JAXB_JDK("com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl", JaxbJdkXmlStructure.class);
 
     private final String jaxbContextClassName;
     private final Class<? extends DefaultJaxbXmlDocumentStructure> documentStructureClass;

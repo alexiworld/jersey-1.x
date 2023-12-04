@@ -130,23 +130,23 @@ public final class JSONMarshallerImpl extends BaseJSONMarshaller implements Mars
         return jaxbMarshaller.getEventHandler();
     }
 
-    public <A extends XmlAdapter> void setAdapter(Class<A> type, A adapter) {
-        jaxbMarshaller.setAdapter(type, adapter);
-    }
-
-    public <A extends XmlAdapter> A getAdapter(Class<A> type) {
-        return jaxbMarshaller.getAdapter(type);
-    }
-
-//    @Override
-//    public <A extends XmlAdapter<?, ?>> void setAdapter(Class<A> type, A adapter) {
+//    public <A extends XmlAdapter> void setAdapter(Class<A> type, A adapter) {
 //        jaxbMarshaller.setAdapter(type, adapter);
 //    }
 //
-//    @Override
-//    public <A extends XmlAdapter<?, ?>> A getAdapter(Class<A> type) {
+//    public <A extends XmlAdapter> A getAdapter(Class<A> type) {
 //        return jaxbMarshaller.getAdapter(type);
 //    }
+//
+    @Override
+    public <A extends XmlAdapter<?, ?>> void setAdapter(Class<A> type, A adapter) {
+        jaxbMarshaller.setAdapter(type, adapter);
+    }
+
+    @Override
+    public <A extends XmlAdapter<?, ?>> A getAdapter(Class<A> type) {
+        return jaxbMarshaller.getAdapter(type);
+    }
 
     public void setAdapter(XmlAdapter adapter) {
         jaxbMarshaller.setAdapter(adapter);

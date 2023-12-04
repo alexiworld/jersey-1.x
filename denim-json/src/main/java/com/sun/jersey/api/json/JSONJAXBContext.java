@@ -504,10 +504,10 @@ public final class JSONJAXBContext extends JAXBContext implements JSONConfigurat
      * @return what underlying JAXBContext returns
      * @throws jakarta.xml.bind.JAXBException
      */
-    @Override
-    public Validator createValidator() throws JAXBException {
-        return jaxbContext.createValidator();
-    }
+//    @Override
+//    public Validator createValidator() throws JAXBException {
+//        return jaxbContext.createValidator();
+//    }
 
     /**
      * Returns the underlying {@link JAXBContext}.
