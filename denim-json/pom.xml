@@ -65,6 +65,14 @@
          com.sun.xml.internal.bind.v2.model.runtime and com.sun.xml.internal.bind.v2.runtime
          (a.k.a. com.sun.xml.bind.v2.model.runtime and com.sun.xml.bind.v2.runtime)
          stripped from JDK 11+
+         - Jakarta xml binding (and therefore Jakarta EE10) was downgraded from 4.0.1 to
+         3.0.1 (i.e. Jakarta EE9) because Glassfish JAXB providing com.sun.xml.internal.*
+         (or com.sun.xml.bind.*) packages is an older version of Glassfish JAXB
+         (com.sun.xml.bind:jaxb-impl:3.0.0). If we leave Jakarta xml binding at 4.0.1
+         when JSONHelper.getJaxbProvider() is invoked, the latter calls Class.forName()
+         to load Glassfish JAXB's class org.glassfish.jaxb.runtime.v2.runtime.JAXBContextImpl.
+         JAXBContextImpl unfortunately imports jakarta.xml.bind.Validator and as the one is
+         not present in Jakarta xml binding 4.0.1 a ClassNotFoundException will be thrown.
          - javax.xml is OK to be used as it is part of JDK
          - javax.xml.bind was to be replaced by jakarta.xml.bind
          - jackson2ish versions used in pjfanning had to be upgraded to 2.16.0 because of
